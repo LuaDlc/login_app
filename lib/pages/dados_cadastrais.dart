@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/shared/widgets/text_label.dart';
 
+import '../repository/nivel_repository.dart';
+
 class DadosCadastrais extends StatefulWidget {
   const DadosCadastrais({
     Key? key,
@@ -16,6 +18,17 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
   var dataNascimentoController = TextEditingController(text: "");
 
   DateTime? dataNascimento;
+  var nivelRepository = NivelRepository();
+  var niveis = [];
+  var nivelSelecionado = "";
+
+  @override
+  void initState() {
+    niveis = nivelRepository
+        .retornaNiveis; //simula ainstancia de um banco de dados externo
+    //em que niveis recebe os niveis do nivelRepository
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +68,35 @@ class _DadosCadastraisState extends State<DadosCadastrais> {
                 print(data);
               },
             ),
+            const TextLabel(texto: "Nivel de experiencia"),
+            Column(
+              children:
+                  niveis //para receber os niveis em cada radiobutton, é necessario fazer um map, que recebe nivel.toString
+                      //e recebe cada item/nivel no titulo e valor, para exibir e transformar em lista(toList)
+                      .map((nivel) => RadioListTile(
+                          title: Text(
+                            nivel.toString(),
+                          ),
+                          dense: true,
+                          value: nivel.toString(),
+                          groupValue:
+                              nivelSelecionado, //recebe o nivel selecionado
+                          selected: false,
+                          onChanged: (nivel) {
+                            setState(() {
+                              nivelSelecionado = nivel
+                                  .toString(); //nivelSelecionado recebe o valor selecionado
+                            });
+                            print(nivel);
+                          }))
+                      .toList(),
+            ),
             TextButton(
                 onPressed: () {
                   print(nomeController.text);
                   print(dataNascimento);
                 },
-                child: Text("salvar"))
+                child: const Text("salvar"))
           ],
         ),
       ),

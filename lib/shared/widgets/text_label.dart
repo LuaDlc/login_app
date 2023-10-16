@@ -9,9 +9,12 @@ class TextLabel extends StatelessWidget {
   final String texto;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      texto,
-      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      child: Text(
+        texto,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+      ),
     );
   }
 }
