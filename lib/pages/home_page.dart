@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/pages/dados_cadastrais.dart';
-import 'package:login_app/pages/page1.dart';
+import 'package:login_app/pages/card_page.dart';
 import 'package:login_app/pages/page2.dart';
 import 'package:login_app/pages/page3.dart';
 import 'package:login_app/shared/widgets/custom_drawer.dart';
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               },
               //navegacao entre paginas/telas
               children: const [
-                Page1(),
+                CardPage(),
                 Page2(),
                 Page3(),
               ],
