@@ -3,6 +3,7 @@ import 'package:login_app/pages/dados_cadastrais.dart';
 import 'package:login_app/pages/page1.dart';
 import 'package:login_app/pages/page2.dart';
 import 'package:login_app/pages/page3.dart';
+import 'package:login_app/shared/widgets/custom_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,60 +21,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Meu app'),
       ),
-      drawer: Drawer(
-        child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DadosCadastrais(),
-                      ),
-                    );
-                  },
-                  child: const Text('Dados'),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print('sasa');
-                  },
-                  child: const Text('Termos de uso e privacidade'),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                    onTap: () {
-                      print('sasa');
-                    },
-                    child: const Text('configuracoes')),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Divider(),
-              ],
-            )),
-      ),
+      drawer: const CustomDrawer(),
       body: Column(
         children: [
           Expanded(
