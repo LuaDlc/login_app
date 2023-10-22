@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/pages/card_page.dart';
-import 'package:login_app/pages/page2.dart';
+import 'package:login_app/pages/image_assets.dart';
 import 'package:login_app/pages/page3.dart';
 import 'package:login_app/shared/widgets/custom_drawer.dart';
 
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               //navegacao entre paginas/telas
               children: const [
                 CardPage(),
-                Page2(),
+                ImageAssets(),
                 Page3(),
               ],
             ),
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.home),
                 ),
                 BottomNavigationBarItem(
-                  label: 'Page2',
+                  label: 'Imagens',
                   icon: Icon(Icons.add),
                 ),
                 BottomNavigationBarItem(
